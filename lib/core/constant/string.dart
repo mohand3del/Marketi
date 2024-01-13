@@ -1,6 +1,9 @@
 
 
- const splash = '/splash';
- const onBoarding = '/onBoarding';
- const login = '/login';
- const signup = '/signup';
+class Routes {
+static const splash = '/splash';
+static const onBoarding = '/onBoarding';
+ static const login = '/login';
+static const signup = '/signup';
+static const home = '/home';
+}

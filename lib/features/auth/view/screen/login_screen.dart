@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:marketi/core/constant/string.dart';
 import 'package:marketi/core/widgets/custom_text_field.dart';
+import 'package:marketi/features/auth/data/model/login_request_body.dart';
+import 'package:marketi/features/auth/view/screen/sign_up_screen.dart';
+import 'package:marketi/features/auth/view/widget/LoginBlocListener.dart';
 import 'package:marketi/features/auth/view/widget/custom_bottom.dart';
+import 'package:marketi/features/auth/view/widget/email_and_password.dart';
 import 'package:marketi/features/auth/view/widget/other_login.dart';
+import 'package:marketi/features/auth/view_model/cubit/login_cubit/login_cubit.dart';
+import 'package:marketi/features/home/presentation/view/home_view.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -11,125 +18,139 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffFFFFFFFF),
+      backgroundColor: const Color(0xffFFFFFFFF),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric( horizontal: 12),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(height: 60.h,),
-              Image.asset(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(height: 60.h,),
+                Image.asset(
 
-                'assets/images/Logo_Log_In.png',
-                height: 232.h,
-                width: 272.w,
-              ),
-                SizedBox(height:22.h ,),
-              CustomTextField(
-                hintText: 'Username or Email',
-                prefixIcon: Icon(
-                  Icons.email_outlined,
-                  size: 18.sp,
+                  'assets/images/Logo_Log_In.png',
+                  height: 232.h,
+                  width: 272.w,
                 ),
-              ),
-              SizedBox(
-                height: 12.h,
-              ),
-              CustomTextField(
-                hintText: 'Password',
-                prefixIcon: Icon(
-                  Icons.lock_outline_rounded,
-                  size: 18,
-                ),
-              ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: Padding(
-                  padding: EdgeInsets.only(top: 4),
-                  child: InkWell(
-                      onTap: () {},
-                      child: Text(
-                        'Forgot Password?',
-                        style: TextStyle(
-                          color: Color(0xff3F80FF),
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w500
-                        ),
-                      )),
-                ),
-              ),//Forgot Password Bottom
-              SizedBox(height: 12.h,),
-              CustomBottom(text: 'Log In',),
-              SizedBox(height: 12.h,),
-              Align(
-                alignment: Alignment.center,
-                child: Text('Or Continue With',style: TextStyle(
-                  color: Color(0xff51526C),
-                  fontWeight: FontWeight.w400,
-                  fontSize: 12.sp
-                ),),
-              ),
-              SizedBox(height: 12.h,),
-             CustomOtherLogin(),
+                  SizedBox(height:22.h ,),
 
-              Padding(
-                padding: const EdgeInsets.only(top: 12),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Align(
-                      child: Text.rich(
-                        TextSpan(
-                          children: [
-                            TextSpan(
-                              text: 'Are you new in Marketi',
-                              style: TextStyle(
-                                color: Color(0xFF51526B),
-                                fontSize: 12,
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w400,
-                                height: 0.11,
+
+                EmailAndPassword(),
+
+
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 4),
+                    child: InkWell(
+                        onTap: () {},
+                        child: Text(
+                          'Forgot Password?',
+                          style: TextStyle(
+                            color: const Color(0xff3F80FF),
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w500
+                          ),
+                        )),
+                  ),
+                ),//Forgot Password Bottom
+                SizedBox(height: 12.h,),
+                 CustomBottom(text: 'Log In',  onPressed: () {
+
+                     print(context.read<LoginCubit>().emailController.text);
+                     print( context.read<LoginCubit>().passwordController.text);
+                     print('object');
+                     validateThenDoLogin(context);
+
+                 },
+                 ),
+                SizedBox(height: 12.h,),
+                Align(
+                  alignment: Alignment.center,
+                  child: Text('Or Continue With',style: TextStyle(
+                    color: const Color(0xff51526C),
+                    fontWeight: FontWeight.w400,
+                    fontSize: 12.sp
+                  ),),
+                ),
+                SizedBox(height: 12.h,),
+               const CustomOtherLogin(),
+
+                Padding(
+                  padding: const EdgeInsets.only(top: 12),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Align(
+                        child: Text.rich(
+                          TextSpan(
+                            children: [
+                              TextSpan(
+                                text: 'Are you new in Marketi',
+                                style: TextStyle(
+                                  color: Color(0xFF51526B),
+                                  fontSize: 12,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                  height: 0.11,
+                                ),
                               ),
-                            ),
-                            TextSpan(
-                              text: ' ',
-                              style: TextStyle(
-                                color: Color(0xFFDCDDDF),
-                                fontSize: 12,
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w400,
-                                height: 0.11,
+                              TextSpan(
+                                text: ' ',
+                                style: TextStyle(
+                                  color: Color(0xFFDCDDDF),
+                                  fontSize: 12,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w400,
+                                  height: 0.11,
+                                ),
                               ),
-                            ),
 
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    InkWell(
-                      onTap: (){
-                        Navigator.pushNamed(context,signup );
-                      },
-                      child: Text(
-                        'register?',
-                        style: TextStyle(
-                          color: Color(0xFF3F80FF),
-                          fontSize: 12,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w400,
-                          height: 0.11,
+                      InkWell(
+                        onTap: (){
+                          Navigator.pushNamed(context,Routes.signup );
+                        },
+                        child: const Text(
+                          'register?',
+                          style: TextStyle(
+                            color: Color(0xFF3F80FF),
+                            fontSize: 12,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w400,
+                            height: 0.11,
+                          ),
                         ),
                       ),
-                    )
-                  ],
-                ),
-              ),
+                      LoginBlocListener(),
 
-            ],
+                    ],
+                  ),
+                ),
+
+              ],
+            ),
           ),
         ),
       ),
     );
   }
+
+  void validateThenDoLogin(BuildContext context) {
+    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+      context.read<LoginCubit>().emitLoginStates(
+        LoginRequestBody(
+          email: context.read<LoginCubit>().emailController.text,
+          password: context.read<LoginCubit>().passwordController.text,
+        ),
+      );
+    }
+  }
+
 }
+
+
