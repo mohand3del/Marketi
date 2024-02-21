@@ -3,7 +3,7 @@
 class ApiConstants {
   static const String baseUrl = 'https://ecommerce-hk5e.onrender.com/api/v1/';
     static const String login = 'auth/signIn';
-  static const String signUp = 'auth/signUp';
+    static const String signUp = 'auth/signUp';
 
 
 }
