@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:marketi/core/helper/app_regex.dart';
 import 'package:marketi/core/widgets/custom_text_field.dart';
-import 'package:marketi/features/auth/view_model/cubit/login_cubit/login_cubit.dart';
+import 'package:marketi/features/auth/login/view_model/cubit/login_cubit/login_cubit.dart';
+
 
 class EmailAndPassword extends StatefulWidget {
   const EmailAndPassword({super.key});
@@ -18,6 +19,7 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
   bool hasSpecialCharacters = false;
   bool hasNumber = false;
   bool hasMinLength = false;
+   bool isPasswordObscureText = true;
 
   late TextEditingController passwordController;
   @override
@@ -69,6 +71,19 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           prefixIcon: Icon(
             Icons.lock_outline_rounded,
             size: 18,
+          ),
+          isObscureText: isPasswordObscureText,
+          suffixIcon: GestureDetector(
+            onTap: () {
+              setState(() {
+                isPasswordObscureText = !isPasswordObscureText;
+              });
+            },
+            child: Icon(
+              isPasswordObscureText
+                  ? Icons.visibility_off
+                  : Icons.visibility,
+            ),
           ),
           validator: (value) {
             if (value == null || value.isEmpty || !AppRegex.isPasswordValid(value)) {
