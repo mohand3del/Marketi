@@ -51,6 +51,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) =>CongratulationsScreen());
       case Routes.createNewPass:
         return MaterialPageRoute(builder: (_) => CreateNewPassword());
+      case Routes.createNewPass:
+        return MaterialPageRoute(builder: (_) => CreateNewPassword());
       case Routes.layout:
         return MaterialPageRoute(builder: (_) => LayoutView());
       case Routes.home:
