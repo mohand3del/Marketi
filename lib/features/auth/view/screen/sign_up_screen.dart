@@ -44,7 +44,7 @@ class SignUp extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              const CustomTextField(
+               CustomTextField(
                 hintText: 'Full Name',
                 prefixIcon: Padding(
                   padding: EdgeInsets.only(top: 12,left: 14,bottom:14),
@@ -53,6 +53,7 @@ class SignUp extends StatelessWidget {
                     size: 16,
                   ),
                 ),
+                 validator: (value) {  },
               ),
               const Text(
                 'Username',
@@ -63,7 +64,7 @@ class SignUp extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              const CustomTextField(
+               CustomTextField(
                 hintText: 'Username',
                 prefixIcon: Padding(
                   padding: EdgeInsets.only(top: 12,left: 14,bottom:14),
@@ -72,6 +73,7 @@ class SignUp extends StatelessWidget {
                     size: 16,
                   ),
                 ),
+                validator: (value) {  },
               ),
               const Text(
                 'Phone Number',
@@ -82,7 +84,7 @@ class SignUp extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              const CustomTextField(
+               CustomTextField(
                 hintText: '0123456789',
                 prefixIcon: Padding(
                   padding: EdgeInsets.only(top: 12,left: 16,bottom:16),
@@ -90,7 +92,8 @@ class SignUp extends StatelessWidget {
                     FontAwesomeIcons.mobileScreenButton,
                     size: 16,
                   ),
-                ),
+
+                ), validator: (value) {  },
               ),
               const Text(
                 'Email',
@@ -101,12 +104,13 @@ class SignUp extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              const CustomTextField(
+               CustomTextField(
                 hintText: 'Email',
                 prefixIcon: Icon(
                   Icons.email_outlined,
                   size: 18,
                 ),
+                 validator: (value) {  },
               ),
               const Text(
                 'Password',
@@ -117,12 +121,13 @@ class SignUp extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              const CustomTextField(
+               CustomTextField(
                 hintText: 'Password',
                 prefixIcon: Icon(
                   Icons.lock_outline_rounded,
                   size: 18,
                 ),
+                 validator: (value) {  },
               ),
               const Text(
                 'Confirm Password',
@@ -133,18 +138,19 @@ class SignUp extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              const CustomTextField(
+               CustomTextField(
                 hintText: 'Confirm Password',
                 prefixIcon: Icon(
                   Icons.lock_outline_rounded,
                   size: 18,
                 ),
+                 validator: (value) {  },
               ),
               SizedBox(
                 height: 12.h,
               ),
-              const CustomBottom(
-                text: 'Sign Up',
+               CustomBottom(
+                text: 'Sign Up', onPressed: () {  },
               ),
               SizedBox(height: 8.h,),
               Align(
