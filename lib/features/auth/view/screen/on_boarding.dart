@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:marketi/core/constant/color.dart';
+import 'package:marketi/core/constant/coloe.dart';
 import 'package:marketi/core/utils/onBoarding_list.dart';
-import 'package:marketi/features/auth/login/view/screen/login_screen.dart';
-import 'package:marketi/features/auth/login/view_model/AuthCubit/auth_cubit.dart';
-
+import 'package:marketi/features/auth/view/screen/login_screen.dart';
+import 'package:marketi/features/auth/view_model/AuthCubit/auth_cubit.dart';
 import 'package:marketi/features/layout/presentation/view/layout_view.dart';
 
 class OnBoardingScreen extends StatelessWidget {
@@ -57,7 +56,7 @@ class OnBoardingScreen extends StatelessWidget {
                                           onBoardingList.length,
                                           (index) => AnimatedContainer(
                                                 duration: Duration(
-                                                    microseconds: 100),
+                                                    microseconds: 200),
                                                 margin:
                                                     EdgeInsets.only(right: 5),
                                                 height: cubit.currentIndex ==
@@ -87,7 +86,7 @@ class OnBoardingScreen extends StatelessWidget {
                               onBoardingList[index].title!,
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontSize: 22.sp,
+                                  fontSize: 22,
                                   fontWeight: FontWeight.bold,
                                   color: AppColor.darkBlue),
                             ),
@@ -102,7 +101,7 @@ class OnBoardingScreen extends StatelessWidget {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     color: AppColor.darkBlue,
-                                    fontSize: 16.sp,
+                                    fontSize: 16,
                                     fontFamily: 'Poppins',
                                     fontWeight: FontWeight.w500,
                                   ),

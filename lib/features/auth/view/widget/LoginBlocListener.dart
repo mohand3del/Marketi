@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marketi/core/constant/string.dart';
 import 'package:marketi/core/helper/extentions.dart';
-import 'package:marketi/features/auth/login/view_model/cubit/login_cubit/login_cubit.dart';
-import 'package:marketi/features/auth/login/view_model/cubit/login_cubit/login_state.dart';
-
+import 'package:marketi/features/auth/view_model/cubit/login_cubit/login_cubit.dart';
+import 'package:marketi/features/auth/view_model/cubit/login_cubit/login_state.dart';
 
 class LoginBlocListener extends StatelessWidget {
   const LoginBlocListener({super.key});

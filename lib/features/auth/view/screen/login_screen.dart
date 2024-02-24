@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:marketi/core/constant/string.dart';
-import 'package:marketi/features/auth/login/data/model/login_request_body.dart';
-import 'package:marketi/features/auth/login/view/widget/LoginBlocListener.dart';
-import 'package:marketi/features/auth/login/view/widget/custom_bottom.dart';
-import 'package:marketi/features/auth/login/view/widget/email_and_password.dart';
-import 'package:marketi/features/auth/login/view/widget/other_login.dart';
-import 'package:marketi/features/auth/login/view_model/cubit/login_cubit/login_cubit.dart';
-
+import 'package:marketi/core/widgets/custom_text_field.dart';
+import 'package:marketi/features/auth/data/model/login_request_body.dart';
+import 'package:marketi/features/auth/view/screen/sign_up_screen.dart';
+import 'package:marketi/features/auth/view/widget/LoginBlocListener.dart';
+import 'package:marketi/features/auth/view/widget/custom_bottom.dart';
+import 'package:marketi/features/auth/view/widget/email_and_password.dart';
+import 'package:marketi/features/auth/view/widget/other_login.dart';
+import 'package:marketi/features/auth/view_model/cubit/login_cubit/login_cubit.dart';
+import 'package:marketi/features/home/presentation/view/home_view.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -42,9 +44,7 @@ class LoginScreen extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(top: 4),
                     child: InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context, Routes.forgotPasswordPhone);
-                        },
+                        onTap: () {},
                         child: Text(
                           'Forgot Password?',
                           style: TextStyle(
@@ -65,7 +65,7 @@ class LoginScreen extends StatelessWidget {
 
                  },
                  ),
-                SizedBox(height: 14.h,),
+                SizedBox(height: 12.h,),
                 Align(
                   alignment: Alignment.center,
                   child: Text('Or Continue With',style: TextStyle(
@@ -74,11 +74,11 @@ class LoginScreen extends StatelessWidget {
                     fontSize: 12.sp
                   ),),
                 ),
-                SizedBox(height: 14.h,),
+                SizedBox(height: 12.h,),
                const CustomOtherLogin(),
 
                 Padding(
-                  padding: const EdgeInsets.only(top: 14),
+                  padding: const EdgeInsets.only(top: 12),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -115,11 +115,11 @@ class LoginScreen extends StatelessWidget {
                         onTap: (){
                           Navigator.pushNamed(context,Routes.signup );
                         },
-                        child:  Text(
+                        child: const Text(
                           'register?',
                           style: TextStyle(
                             color: Color(0xFF3F80FF),
-                            fontSize: 14.sp,
+                            fontSize: 12,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w400,
                             height: 0.11,

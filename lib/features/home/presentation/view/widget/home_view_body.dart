@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:marketi/features/home/presentation/view/widget/custom_app_bar.dart';
 
 import 'custom_popular_product.dart';
@@ -22,7 +21,7 @@ class HomeViewBody extends StatelessWidget {
             const CustomSearch(),
             Container(
               margin: const EdgeInsets.only(bottom: 14),
-              height: 120.h,
+              height: 120,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(14),
                 image: const DecorationImage(

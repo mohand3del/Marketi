@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
@@ -9,30 +8,30 @@ class CustomSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Padding(
-      padding:  EdgeInsets.symmetric(
-        vertical: 14.h,
+      padding: const EdgeInsets.symmetric(
+        vertical: 14,
       ),
       child: Container(
-        height: 44.h,
+        height: 44,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(14.r),
+          borderRadius: BorderRadius.circular(14),
           color: Colors.white,
-          border: Border.all(color: Colors.blue.shade100,width: 2.w,),
+          border: Border.all(color: Colors.blue.shade100,width: 2,),
         ),
         child:  Padding(
-          padding:  EdgeInsets.symmetric(
-            horizontal: 10.w,
+          padding: const EdgeInsets.symmetric(
+            horizontal: 10,
           ),
           child: Row(
             children: [
-               Icon(FontAwesomeIcons.magnifyingGlass,size: 24.sp,),
-               SizedBox(
-                width: 15.w,
+              const Icon(FontAwesomeIcons.magnifyingGlass,size: 24,),
+              const SizedBox(
+                width: 15,
               ),
-               Expanded(
+              const Expanded(
                 child: Text('What are you looking for ?',
                   style: TextStyle(
-                      fontSize: 16.sp,
+                      fontSize: 16,
                       fontWeight: FontWeight.w400,
                       color: Color(0xff929BAB)
                   ),
@@ -41,15 +40,15 @@ class CustomSearch extends StatelessWidget {
               InkWell(
                 onTap: (){},
                 child: Container(
-                    padding:  EdgeInsetsDirectional.symmetric(
-                      horizontal: 3.w,
-                      vertical: 3.h,
+                    padding: const EdgeInsetsDirectional.symmetric(
+                      horizontal: 3,
+                      vertical: 3,
                     ),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8.r),
-                      border: Border.all(color: Colors.blue.shade100,width: 1.w),
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Colors.blue.shade100,width: 1),
                     ),
-                    child:  Icon(FontAwesomeIcons.sliders,color: Colors.blue,size: 24.sp,)),
+                    child: const Icon(FontAwesomeIcons.sliders,color: Colors.blue,size: 24,)),
               ),
             ],
           ),

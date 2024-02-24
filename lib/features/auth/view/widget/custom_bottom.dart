@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:marketi/core/constant/color.dart';
 
-
+import '../../../../core/constant/coloe.dart';
 
 class CustomBottom extends StatelessWidget {
   const CustomBottom(
@@ -19,7 +18,7 @@ class CustomBottom extends StatelessWidget {
       child: MaterialButton(
         color: AppColor.primaryColor,
         textColor: Colors.white,
-        padding: EdgeInsets.only(right: 50.h, left: 50.h),
+        padding: EdgeInsets.only(right: 50, left: 50),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(14),
         ),
@@ -27,7 +26,7 @@ class CustomBottom extends StatelessWidget {
 
         child: Text(
           text,
-          style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.w500),
+          style: TextStyle(fontSize: 18),
         ),
       ),
     );

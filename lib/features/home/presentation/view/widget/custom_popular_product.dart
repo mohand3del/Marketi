@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:marketi/features/home/presentation/view/widget/build_popular_item.dart';
+import 'package:marketi/features/home/presentation/view/widget/build_item.dart';
 
 
 class CustomPopularProduct extends StatelessWidget {
@@ -12,9 +11,9 @@ class CustomPopularProduct extends StatelessWidget {
       children: [
         Row(
           children: [
-             Text('Popular Product',
+            const Text('Popular Product',
               style: TextStyle(
-                fontSize: 20.sp,
+                fontSize: 20,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -26,13 +25,13 @@ class CustomPopularProduct extends StatelessWidget {
           ],
         ),
         SizedBox(
-          height: 154.h,
+          height: 166,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
             itemBuilder: (context,index)=>const BuildItem(),
-            separatorBuilder: (context,index)=> SizedBox(
-              width: 16.w,
+            separatorBuilder: (context,index)=>const SizedBox(
+              width: 16,
             ),
             itemCount: 20,
           ),
