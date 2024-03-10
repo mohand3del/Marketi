@@ -9,6 +9,7 @@ import 'package:marketi/core/di/dependency_injection.dart';
 import 'package:marketi/core/routing/router.dart';
 import 'package:marketi/features/auth/login/view_model/AuthCubit/auth_cubit.dart';
 import 'package:marketi/features/auth/login/view_model/cubit/login_cubit/login_cubit.dart';
+import 'package:marketi/features/auth/otp/view_model/cubit/forgot_cubit.dart';
 import 'package:marketi/features/auth/signUp/view_model/cubit/signup_cubit.dart';
 import 'package:marketi/features/layout/presentation/view_model/cubit/cubit.dart';
 
@@ -46,6 +47,9 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (BuildContext context) => LayoutCubit(),
+          ),
+          BlocProvider(
+            create: (BuildContext context) => ForgotCubit(getIt()),
           )
         ],
         child: MaterialApp(

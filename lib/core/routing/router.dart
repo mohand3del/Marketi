@@ -9,6 +9,7 @@ import 'package:marketi/features/auth/otp/view/screens/forgot_password_screen.da
 import 'package:marketi/features/auth/otp/view/screens/forgot_password_with_phone.dart';
 import 'package:marketi/features/auth/otp/view/screens/otp_email_screen.dart';
 import 'package:marketi/features/auth/otp/view/screens/otp_phone_screen.dart';
+import 'package:marketi/features/auth/otp/view_model/cubit/forgot_cubit.dart';
 import 'package:marketi/features/auth/signUp/view/screens/sign_up_screen.dart';
 import 'package:marketi/features/auth/login/view/screen/splash_screen.dart';
 import 'package:marketi/features/auth/login/view_model/cubit/login_cubit/login_cubit.dart';
@@ -40,7 +41,10 @@ class AppRouter {
       case Routes.signup:
         return MaterialPageRoute(builder: (_) => SignUp());
       case Routes.forgotPassword:
-        return MaterialPageRoute(builder: (_) => ForgotPasswordScreen());
+        return MaterialPageRoute(builder: (_) => BlocProvider(
+            
+            create: (BuildContext context) =>ForgotCubit(getIt()),
+            child: ForgotPasswordScreen()));
       case Routes.forgotPasswordPhone:
         return MaterialPageRoute(builder: (_) => ForgotPasswordPhone());
       case Routes.otpPhone:

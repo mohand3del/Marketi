@@ -4,6 +4,8 @@ import 'package:marketi/core/network/api_service.dart';
 import 'package:marketi/core/network/dio_factory.dart';
 import 'package:marketi/features/auth/login/data/reposetory/login_repo.dart';
 import 'package:marketi/features/auth/login/view_model/cubit/login_cubit/login_cubit.dart';
+import 'package:marketi/features/auth/otp/data/repo/forgot_repo.dart';
+import 'package:marketi/features/auth/otp/view_model/cubit/forgot_cubit.dart';
 import 'package:marketi/features/auth/signUp/data/repos/sign_up_repo.dart';
 import 'package:marketi/features/auth/signUp/view_model/cubit/signup_cubit.dart';
 
@@ -26,5 +28,7 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<SignupRepo>(() => SignupRepo(getIt()));
   getIt.registerFactory<SignupCubit>(() => SignupCubit(getIt()));
   //
+  getIt.registerLazySingleton<ForgotRepo>(() => ForgotRepo(getIt()));
+  getIt.registerFactory<ForgotCubit>(() => ForgotCubit(getIt()));
 
 }

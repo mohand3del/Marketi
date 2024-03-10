@@ -1,7 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:marketi/features/auth/login/data/reposetory/login_repo.dart';
 import 'package:marketi/features/auth/login/view_model/cubit/login_cubit/login_state.dart';
 

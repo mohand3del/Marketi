@@ -5,6 +5,8 @@ import 'package:marketi/core/network/api_constants.dart';
 
 import 'package:marketi/features/auth/login/data/model/login_request_body.dart';
 import 'package:marketi/features/auth/login/data/model/login_response.dart';
+import 'package:marketi/features/auth/otp/data/model/forgot_request_body.dart';
+import 'package:marketi/features/auth/otp/data/model/forgot_response_body.dart';
 import 'package:marketi/features/auth/signUp/data/model/sign_up_request_body.dart';
 import 'package:marketi/features/auth/signUp/data/model/sign_up_response.dart';
 import 'package:retrofit/retrofit.dart';
@@ -22,5 +24,9 @@ abstract class ApiService {
   Future<SignUpResponse> signup(
       @Body() SignUpRequestBody signupRequestBody,
       );
-  
+  @POST(ApiConstants.forgot)
+  Future<ForgotResponseBody> forgot(
+      @Body() ForgotRequestBody forgotRequestBody,
+
+      );
 }
