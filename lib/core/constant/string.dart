@@ -1,4 +1,7 @@
 
+class AppStrings {
+  static const String appName = 'Marketi';
+}
 
 class Routes {
 static const splash = '/splash';

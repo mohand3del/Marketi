@@ -1,23 +1,26 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marketi/core/constant/color.dart';
 import 'package:marketi/core/constant/string.dart';
 import 'package:marketi/core/helper/extentions.dart';
+import 'package:marketi/features/auth/otp/view_model/cubit/verify_cubit.dart';
 import 'package:marketi/features/auth/signUp/view_model/cubit/signup_cubit.dart';
 
-class SignupBlocListener extends StatelessWidget {
-  const SignupBlocListener({super.key});
+class VerifyBlocListener extends StatelessWidget {
+  const VerifyBlocListener({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<SignupCubit, SignupState>(
+    return BlocListener<VerifyCubit, VerifyState>(
       listenWhen: (previous, current) =>
-      current is SignupLoading ||
-          current is SignupSuccess ||
-          current is SignupError,
+      current is Loading ||
+          current is Success ||
+          current is Error,
       listener: (context, state) {
         state.whenOrNull(
-          signupLoading: () {
+          loading: () {
             showDialog(
               context: context,
               builder: (context) => const Center(
@@ -27,11 +30,11 @@ class SignupBlocListener extends StatelessWidget {
               ),
             );
           },
-          signupSuccess: (signupResponse) {
+          success: (signupResponse) {
             context.pop();
             showSuccessDialog(context);
           },
-          signupError: (error) {
+          error: (error) {
             setupErrorState(context, error);
           },
         );
@@ -45,11 +48,11 @@ class SignupBlocListener extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Signup Successful'),
+          title: const Text('Verify Successful'),
           content: const SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
-                Text('Congratulations, you have signed up successfully!'),
+                Text('Congratulations, you have Verify successfully!'),
               ],
             ),
           ),
@@ -60,7 +63,7 @@ class SignupBlocListener extends StatelessWidget {
                 foregroundColor: Colors.white, backgroundColor: Colors.blue, disabledForegroundColor: Colors.grey.withOpacity(0.38),
               ),
               onPressed: () {
-                context.pushNamed(Routes.login);
+                context.pushNamed(Routes.createNewPass);
               },
             ),
           ],

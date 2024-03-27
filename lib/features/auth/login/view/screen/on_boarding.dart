@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:marketi/core/constant/color.dart';
+import 'package:marketi/core/helper/cache_helper.dart';
 import 'package:marketi/core/utils/onBoarding_list.dart';
 import 'package:marketi/features/auth/login/view/screen/login_screen.dart';
 import 'package:marketi/features/auth/login/view_model/AuthCubit/auth_cubit.dart';
@@ -132,10 +133,20 @@ class OnBoardingScreen extends StatelessWidget {
                                         onBoardingList.length - 1) {
                                       context.read<AuthCubit>().nextPage();
                                     } else {
-                                      Navigator.of(context).pushReplacement(
+
+                                      CacheHelper.insertCache(key: 'onBoarding', value: true).then((value) => {
+                                        if(value){
+                                          Navigator.of(context).pushReplacement(
                                         MaterialPageRoute(
-                                            builder: (_) => LoginScreen()),
-                                      );
+                                          builder: (_) => LoginScreen(),
+
+
+                                        ),
+
+                                      )
+                                        }
+                                      });
+
                                     }
 
                                   },

@@ -1,6 +1,9 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marketi/core/di/dependency_injection.dart';
+import 'package:marketi/core/helper/cache_helper.dart';
 import 'package:marketi/features/auth/login/view/screen/login_screen.dart';
 import 'package:marketi/features/auth/login/view/screen/on_boarding.dart';
 import 'package:marketi/features/auth/otp/view/screens/congratulations_screen.dart';
@@ -22,11 +25,14 @@ import '../constant/string.dart';
 class AppRouter {
 
   Route generateRoute(RouteSettings settings) {
-    final arguments = settings.arguments;
+   // final arguments = settings.arguments;
     switch (settings.name) {
       case Routes.splash:
         return MaterialPageRoute(
-          builder: (_) => Splash(),
+          builder: (_) => Splash(onFinished:(context){
+
+            }
+          )
         );
 
       case Routes.onBoarding:
@@ -53,8 +59,6 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => OtpEmailScreen());
       case Routes.congratulationsScreen:
         return MaterialPageRoute(builder: (_) =>CongratulationsScreen());
-      case Routes.createNewPass:
-        return MaterialPageRoute(builder: (_) => CreateNewPassword());
       case Routes.createNewPass:
         return MaterialPageRoute(builder: (_) => CreateNewPassword());
       case Routes.layout:

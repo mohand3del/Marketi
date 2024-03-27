@@ -7,6 +7,12 @@ import 'package:marketi/features/auth/login/data/model/login_request_body.dart';
 import 'package:marketi/features/auth/login/data/model/login_response.dart';
 import 'package:marketi/features/auth/otp/data/model/forgot_request_body.dart';
 import 'package:marketi/features/auth/otp/data/model/forgot_response_body.dart';
+import 'package:marketi/features/auth/otp/data/model/new_password_request_body.dart';
+import 'package:marketi/features/auth/otp/data/model/new_password_response_body.dart';
+import 'package:marketi/features/auth/otp/data/model/reset_password_request_body.dart';
+import 'package:marketi/features/auth/otp/data/model/reset_password_response_body.dart';
+import 'package:marketi/features/auth/otp/data/model/verify_request_body.dart';
+import 'package:marketi/features/auth/otp/data/model/verify_response_body.dart';
 import 'package:marketi/features/auth/signUp/data/model/sign_up_request_body.dart';
 import 'package:marketi/features/auth/signUp/data/model/sign_up_response.dart';
 import 'package:retrofit/retrofit.dart';
@@ -28,5 +34,20 @@ abstract class ApiService {
   Future<ForgotResponseBody> forgot(
       @Body() ForgotRequestBody forgotRequestBody,
 
+      );
+  
+  @POST(ApiConstants.reset)
+  Future<ResetPasswordResponseBody>reset(
+      @Body() ResetPasswordRequestBody resetPasswordRequestBody,
+      );
+
+  @POST(ApiConstants.verify)
+  Future<VerifyResponseBody>verify(
+      @Body() VerifyRequestBody verifyRequestBody,
+      );
+
+  @POST(ApiConstants.newPass)
+  Future<NewPasswordResponseBody>newPassword(
+      @Body() NewPasswordRequestBody newPasswordRequestBody,
       );
 }

@@ -43,7 +43,7 @@ class LoginScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 4),
                     child: InkWell(
                         onTap: () {
-                          Navigator.pushNamed(context, Routes.forgotPasswordPhone);
+                          Navigator.pushNamed(context, Routes.forgotPassword);
                         },
                         child: Text(
                           'Forgot Password?',

@@ -22,7 +22,7 @@ class _ApiService implements ApiService {
 
   @override
   Future<LoginResponse> login(LoginRequestBody loginRequestBody) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
@@ -50,7 +50,7 @@ class _ApiService implements ApiService {
 
   @override
   Future<SignUpResponse> signup(SignUpRequestBody signupRequestBody) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
@@ -78,7 +78,7 @@ class _ApiService implements ApiService {
 
   @override
   Future<ForgotResponseBody> forgot(ForgotRequestBody forgotRequestBody) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
@@ -101,6 +101,92 @@ class _ApiService implements ApiService {
               baseUrl,
             ))));
     final value = ForgotResponseBody.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<ResetPasswordResponseBody> reset(
+      ResetPasswordRequestBody resetPasswordRequestBody) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(resetPasswordRequestBody.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ResetPasswordResponseBody>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'auth/verify/resetPassCode',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = ResetPasswordResponseBody.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<VerifyResponseBody> verify(VerifyRequestBody verifyRequestBody) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(verifyRequestBody.toJson());
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<VerifyResponseBody>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'auth/verify/activePass',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = VerifyResponseBody.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<NewPasswordResponseBody> newPassword(
+      NewPasswordRequestBody newPasswordRequestBody) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(newPasswordRequestBody.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<NewPasswordResponseBody>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'auth/verify/resetPass',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = NewPasswordResponseBody.fromJson(_result.data!);
     return value;
   }
 
