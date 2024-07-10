@@ -16,4 +16,8 @@ static const congratulationsScreen = '/congratulationsScreen';
 static const createNewPass = '/createNewPass';
 static const home = '/home';
 static const layout = '/layout';
+static const  popular = '/popular';
+static const  category = '/category';
+static const  bestForYou = '/bestForYou';
+static const brand = '/brand';
 }

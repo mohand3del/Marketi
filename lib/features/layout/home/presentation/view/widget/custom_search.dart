@@ -27,7 +27,7 @@ class CustomSearch extends StatelessWidget {
             children: [
                Icon(FontAwesomeIcons.magnifyingGlass,size: 24.sp,),
                SizedBox(
-                width: 15.w,
+                width: 14.w,
               ),
                Expanded(
                 child: Text('What are you looking for ?',
@@ -49,7 +49,7 @@ class CustomSearch extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8.r),
                       border: Border.all(color: Colors.blue.shade100,width: 1.w),
                     ),
-                    child:  Icon(FontAwesomeIcons.sliders,color: Colors.blue,size: 24.sp,)),
+                    child:  Icon(FontAwesomeIcons.sliders,color: Colors.blue,size: 20.sp,)),
               ),
             ],
           ),

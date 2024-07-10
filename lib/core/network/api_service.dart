@@ -2,6 +2,8 @@
 
 import 'package:dio/dio.dart';
 import 'package:marketi/core/network/api_constants.dart';
+import 'package:marketi/features/auth/login/data/model/google_request_body.dart';
+import 'package:marketi/features/auth/login/data/model/google_response_body.dart';
 
 import 'package:marketi/features/auth/login/data/model/login_request_body.dart';
 import 'package:marketi/features/auth/login/data/model/login_response.dart';
@@ -15,6 +17,8 @@ import 'package:marketi/features/auth/otp/data/model/verify_request_body.dart';
 import 'package:marketi/features/auth/otp/data/model/verify_response_body.dart';
 import 'package:marketi/features/auth/signUp/data/model/sign_up_request_body.dart';
 import 'package:marketi/features/auth/signUp/data/model/sign_up_response.dart';
+import 'package:marketi/features/layout/home/data/model/popular_request_body.dart';
+import 'package:marketi/features/layout/home/data/model/popular_response_body.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'api_service.g.dart';
@@ -30,13 +34,13 @@ abstract class ApiService {
   Future<SignUpResponse> signup(
       @Body() SignUpRequestBody signupRequestBody,
       );
-  @POST(ApiConstants.forgot)
+  @POST(ApiConstants.send)
   Future<ForgotResponseBody> forgot(
       @Body() ForgotRequestBody forgotRequestBody,
 
       );
   
-  @POST(ApiConstants.reset)
+  @POST(ApiConstants.resend)
   Future<ResetPasswordResponseBody>reset(
       @Body() ResetPasswordRequestBody resetPasswordRequestBody,
       );
@@ -49,5 +53,14 @@ abstract class ApiService {
   @POST(ApiConstants.newPass)
   Future<NewPasswordResponseBody>newPassword(
       @Body() NewPasswordRequestBody newPasswordRequestBody,
+      );
+  @GET(ApiConstants.google)
+  Future<GoogleResponseBody> google(
+      @Body() GoogleRequestBody googleRequestBody,
+      );
+  
+  @GET(ApiConstants.popular)
+  Future<PopularResponseBody> popular(
+      @Body() PopularRequestBody popularRequestBody,
       );
 }

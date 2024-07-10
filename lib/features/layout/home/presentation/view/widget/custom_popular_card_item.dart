@@ -1,9 +1,13 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:marketi/features/layout/home/data/model/popular_response_body.dart';
 
-class BuildItem extends StatelessWidget {
-  const BuildItem({super.key});
+class CustomPopularCardItem extends StatelessWidget {
+  const CustomPopularCardItem({super.key,required  this.products});
+  final ListOfProducts products;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +16,7 @@ class BuildItem extends StatelessWidget {
       elevation: 2,
       shadowColor: const Color(0xffD9E6FF),
       child: Container(
-        height: 144.h,
+        height: 186.h,
         width: 160.w,
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(10.r)),
@@ -39,12 +43,12 @@ class BuildItem extends StatelessWidget {
                     Container(
                       width: 90.w,
                       height: 90.h,
-                      decoration: const BoxDecoration(
+                      decoration:  BoxDecoration(
                           image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                            'https://www.costco.co.uk/medias/sys_master/images/h37/hc3/119433914056734.jpg'),
-                      )),
+                            fit: BoxFit.cover,
+                            image: NetworkImage(
+                                products.images!.isNotEmpty ? products.images![0] : ''),
+                          )),
                     ),
                   ],
                 ),
@@ -104,14 +108,14 @@ class BuildItem extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  Spacer(),
+                 const Spacer(),
                   Icon(
                     FontAwesomeIcons.star,
                     size: 14.sp,
                   ),
                   SizedBox(
-                    width: 2.w,
-                  ),
+                    width: 5.w,
+                    height:4.h ,),
                   Text(
                     '4.9',
                     style: TextStyle(
@@ -122,12 +126,11 @@ class BuildItem extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
-              height: 2.h,
-            ),
+
             Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: 5.w,
+                vertical: 3.h,
               ),
               child: Text(
                 'Smart Watch',
@@ -136,7 +139,32 @@ class BuildItem extends StatelessWidget {
                   fontSize: 12.sp,
                 ),
               ),
-            )
+            ),
+              Align(
+                alignment: Alignment.center,
+              child: Container(
+                width: 120.w,
+                height: 28.h,
+
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                    border: Border.all(color: const Color(0xff3F80FF),width: 1.5),
+                  borderRadius: BorderRadius.circular(18.r)
+                ),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                      'Add',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w500,
+                        color: const Color(0xff3F80FF),
+                      )),
+                ),
+              ),
+            ),
+
           ],
         ),
       ),

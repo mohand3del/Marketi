@@ -26,7 +26,7 @@ class OtpEmailScreen extends StatefulWidget {
 
 class _OtpEmailScreenState extends State<OtpEmailScreen> {
   bool isLoading = false;
-  int _start = 45;
+  int _start = 60;
   late Timer _timer;
 
   void startTimer() {

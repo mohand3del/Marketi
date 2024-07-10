@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:marketi/features/home/presentation/view/widget/build_popular_item.dart';
 
 
-class CustomPopularProduct extends StatelessWidget {
-  const CustomPopularProduct({super.key});
+import 'category_item.dart';
+
+
+class CategoryProduct extends StatelessWidget {
+  const CategoryProduct({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,7 @@ class CustomPopularProduct extends StatelessWidget {
       children: [
         Row(
           children: [
-             Text('Popular Product',
+            Text('Category',
               style: TextStyle(
                 fontSize: 20.sp,
                 fontWeight: FontWeight.w600,
@@ -30,7 +32,7 @@ class CustomPopularProduct extends StatelessWidget {
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
-            itemBuilder: (context,index)=>const BuildItem(),
+            itemBuilder: (context,index)=>const CategoryItem(),
             separatorBuilder: (context,index)=> SizedBox(
               width: 16.w,
             ),

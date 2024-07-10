@@ -1,13 +1,17 @@
 
 
 class ApiConstants {
-  static const String baseUrl = 'https://ecommerce-hk5e.onrender.com/api/v1/';
+  static const String baseUrl = 'https://marketi.up.railway.app/api/v1/';
     static const String login = 'auth/signIn';
     static const String signUp = 'auth/signUp';
-    static const String forgot = 'auth/verify/sendPassCode';
-    static const String reset = 'auth/verify/resetPassCode';
-    static const String verify ='auth/verify/activePass';
-    static const String newPass = 'auth/verify/resetPass';
+    static const String send = 'auth/sendPassEmail';
+    static const String resend = 'auth/sendPassEmail';
+    static const String verify ='auth/activeResetPass';
+    static const String newPass = 'auth/resetPassword';
+
+    static const String google = 'auth/oAuth/google';
+
+    static const String popular = 'home/products';
 
 
 }

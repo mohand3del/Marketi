@@ -13,7 +13,7 @@ class _ApiService implements ApiService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://ecommerce-hk5e.onrender.com/api/v1/';
+    baseUrl ??= 'https://marketi.up.railway.app/api/v1/';
   }
 
   final Dio _dio;
@@ -91,7 +91,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              'auth/verify/sendPassCode',
+              'auth/sendPassEmail',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -120,7 +120,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              'auth/verify/resetPassCode',
+              'auth/sendPassEmail',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -148,7 +148,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              'auth/verify/activePass',
+              'auth/activeResetPass',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -177,7 +177,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              'auth/verify/resetPass',
+              'auth/resetPassword',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -187,6 +187,63 @@ class _ApiService implements ApiService {
               baseUrl,
             ))));
     final value = NewPasswordResponseBody.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<GoogleResponseBody> google(GoogleRequestBody googleRequestBody) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(googleRequestBody.toJson());
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<GoogleResponseBody>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'auth/oAuth/google',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = GoogleResponseBody.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<PopularResponseBody> popular(
+      PopularRequestBody popularRequestBody) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(popularRequestBody.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<PopularResponseBody>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'home/products',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = PopularResponseBody.fromJson(_result.data!);
     return value;
   }
 

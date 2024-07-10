@@ -16,8 +16,11 @@ import 'package:marketi/features/auth/otp/view_model/cubit/forgot_cubit.dart';
 import 'package:marketi/features/auth/signUp/view/screens/sign_up_screen.dart';
 import 'package:marketi/features/auth/login/view/screen/splash_screen.dart';
 import 'package:marketi/features/auth/login/view_model/cubit/login_cubit/login_cubit.dart';
+import 'package:marketi/features/layout/home/presentation/view/brand_view.dart';
+import 'package:marketi/features/layout/home/presentation/view/home_view.dart';
+import 'package:marketi/features/layout/home/presentation/view/popular_view.dart';
 
-import 'package:marketi/features/home/presentation/view/home_view.dart';
+
 import 'package:marketi/features/layout/presentation/view/layout_view.dart';
 
 import '../constant/string.dart';
@@ -65,6 +68,10 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => LayoutView());
       case Routes.home:
         return MaterialPageRoute(builder: (_) => HomeView());
+      case Routes.popular:
+        return MaterialPageRoute(builder: (_) => PopularView());
+      case Routes.brand:
+        return MaterialPageRoute(builder: (_) => BrandView());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
