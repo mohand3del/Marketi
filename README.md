@@ -40,6 +40,10 @@ State Management: Cubit/Bloc for efficient state handling.
 ![photo_2](https://github.com/user-attachments/assets/9c999ca9-ef71-4768-b234-e238c969ecab)
 ![photo_3](https://github.com/user-attachments/assets/5784c848-08c2-4ad5-8792-7060d1ebbd84)
 
+
+https://github.com/user-attachments/assets/48dc7530-441f-4a27-a670-b1ebfb79e5e5
+
+
 # Screen Shots
 ![photo_11](https://github.com/user-attachments/assets/82496033-e1a4-4f5d-931e-200928d49e81)
 ![photo_12](https://github.com/user-attachments/assets/30ba8c44-71cd-4f25-8fd3-3847dbd96159)
