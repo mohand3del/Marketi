@@ -36,8 +36,7 @@ Stripe/PayPal: Payment integration for secure and seamless checkout.
 State Management: Cubit/Bloc for efficient state handling.
 # photo app
 
-https://github.com/user-attachments/assets/81eb3078-33a7-4fb1-b944-3c9a33af88ca
-![photo_2](https://github.com/user-attachments/assets/89857343-1bc6-4d96-8486-73e14db7f0b2)
+
 ![photo_2](https://github.com/user-attachments/assets/9c999ca9-ef71-4768-b234-e238c969ecab)
 ![photo_3](https://github.com/user-attachments/assets/5784c848-08c2-4ad5-8792-7060d1ebbd84)
 
