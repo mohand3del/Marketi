@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:marketi/features/layout/home/presentation/view/widget/brand_item.dart';
+import 'package:marketi/features/layout/home/presentation/view/widget/brand/brand_item.dart';
 
-import 'custom_app_bar_two.dart';
+import '../custom_app_bar_two.dart';
 import 'custom_brand_item.dart';
-import 'custom_popular_card_item.dart';
-import 'custom_search.dart';
+import '../popular/custom_popular_card_item.dart';
+import '../custom_search.dart';
 
 class BrandViewBody extends StatelessWidget {
   const BrandViewBody({super.key});

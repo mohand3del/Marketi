@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:marketi/features/layout/home/presentation/view/widget/buy_again_item.dart';
+import 'package:marketi/features/layout/home/presentation/view/widget/brand/brand_item.dart';
 
 
-import 'category_item.dart';
+import '../category/category_item.dart';
 
 
-class BuyAgain extends StatelessWidget {
-  const BuyAgain({super.key});
+class CustomBrand extends StatelessWidget {
+  const CustomBrand({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class BuyAgain extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text('Buy again',
+            Text('Brand',
               style: TextStyle(
                 fontSize: 20.sp,
                 fontWeight: FontWeight.w600,
@@ -23,17 +23,19 @@ class BuyAgain extends StatelessWidget {
             ),
             const Spacer(),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/brand');
+              },
               child: const Text('View all'),
             ),
           ],
         ),
         SizedBox(
-          height: 190.h,
+          height: 154.h,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
-            itemBuilder: (context,index)=>const BuyAgainItem(),
+            itemBuilder: (context,index)=>const BrandItem(),
             separatorBuilder: (context,index)=> SizedBox(
               width: 16.w,
             ),

@@ -16,6 +16,7 @@ import 'package:marketi/features/auth/otp/view_model/cubit/reset_cubit.dart';
 import 'package:marketi/features/auth/otp/view_model/cubit/verify_cubit.dart';
 import 'package:marketi/features/auth/signUp/data/repos/sign_up_repo.dart';
 import 'package:marketi/features/auth/signUp/view_model/cubit/signup_cubit.dart';
+import 'package:marketi/features/layout/home/data/repo/categories_repo.dart';
 import 'package:marketi/features/layout/home/data/repo/popular_repo.dart';
 import 'package:marketi/features/layout/home/view_model/home_cubit.dart';
 
@@ -57,6 +58,9 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<NewPasswordCubit>(() => NewPasswordCubit(getIt()));
   //
   getIt.registerLazySingleton<PopularRepo>(() => PopularRepo(getIt()));
-  getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
+  getIt.registerLazySingleton<CategoriesRepo>(() => CategoriesRepo(getIt()));
+  getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt(
+
+  ),getIt()));
 
 }

@@ -40,7 +40,6 @@ void main() async {
 
   // print(SharedPrefKeys.userToken);
    //print(token);
-
   setupGetIt();
 
 
@@ -100,7 +99,7 @@ class MyApp extends StatelessWidget {
             create: (BuildContext context) => NewPasswordCubit(getIt()),
           ),
           BlocProvider(create: (BuildContext context) => GoogleCubit(getIt()),),
-          BlocProvider(create: (BuildContext context) => HomeCubit(getIt()),),
+          BlocProvider(create: (BuildContext context) => HomeCubit(getIt(),getIt())..getCategories()..getPopularProducts()),
         ],
         child: MaterialApp(
           title: 'Marketi',

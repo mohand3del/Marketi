@@ -17,6 +17,7 @@ import 'package:marketi/features/auth/signUp/view/screens/sign_up_screen.dart';
 import 'package:marketi/features/auth/login/view/screen/splash_screen.dart';
 import 'package:marketi/features/auth/login/view_model/cubit/login_cubit/login_cubit.dart';
 import 'package:marketi/features/layout/home/presentation/view/brand_view.dart';
+import 'package:marketi/features/layout/home/presentation/view/category_view.dart';
 import 'package:marketi/features/layout/home/presentation/view/home_view.dart';
 import 'package:marketi/features/layout/home/presentation/view/popular_view.dart';
 
@@ -48,7 +49,7 @@ class AppRouter {
                 create: (BuildContext context) => getIt<LoginCubit>(),
                 child: const LoginScreen()));
       case Routes.signup:
-        return MaterialPageRoute(builder: (_) => SignUp());
+        return MaterialPageRoute(builder: (_) => const SignUp());
       case Routes.forgotPassword:
         return MaterialPageRoute(builder: (_) => BlocProvider(
             
@@ -57,21 +58,23 @@ class AppRouter {
       case Routes.forgotPasswordPhone:
         return MaterialPageRoute(builder: (_) => ForgotPasswordPhone());
       case Routes.otpPhone:
-        return MaterialPageRoute(builder: (_) => OtpPhoneScreen());
+        return MaterialPageRoute(builder: (_) => const OtpPhoneScreen());
       case Routes.otpEmail:
         return MaterialPageRoute(builder: (_) => OtpEmailScreen());
       case Routes.congratulationsScreen:
-        return MaterialPageRoute(builder: (_) =>CongratulationsScreen());
+        return MaterialPageRoute(builder: (_) =>const CongratulationsScreen());
       case Routes.createNewPass:
         return MaterialPageRoute(builder: (_) => CreateNewPassword());
       case Routes.layout:
-        return MaterialPageRoute(builder: (_) => LayoutView());
+        return MaterialPageRoute(builder: (_) => const LayoutView());
       case Routes.home:
-        return MaterialPageRoute(builder: (_) => HomeView());
+        return MaterialPageRoute(builder: (_) => const HomeView());
       case Routes.popular:
-        return MaterialPageRoute(builder: (_) => PopularView());
+        return MaterialPageRoute(builder: (_) => const PopularView());
       case Routes.brand:
-        return MaterialPageRoute(builder: (_) => BrandView());
+        return MaterialPageRoute(builder: (_) => const BrandView());
+      case Routes.category:
+        return MaterialPageRoute(builder: (_) => const CategoryView());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

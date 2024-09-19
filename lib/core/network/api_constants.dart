@@ -13,6 +13,8 @@ class ApiConstants {
 
     static const String popular = 'home/products';
 
+    static const String categories = 'home/categories';
+
 
 }
 

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:marketi/features/layout/home/presentation/view/widget/custom_popular_card_item.dart';
+import 'package:marketi/features/layout/home/presentation/view/widget/popular/custom_popular_card_item.dart';
 import 'package:marketi/features/layout/home/presentation/view/widget/custom_search.dart';
 import 'package:marketi/features/layout/home/view_model/home_cubit.dart';
 
-import 'custom_app_bar_two.dart';
+import '../custom_app_bar_two.dart';
 
 class PopularBodyView extends StatelessWidget {
   const PopularBodyView({super.key});
@@ -15,7 +15,7 @@ class PopularBodyView extends StatelessWidget {
     return BlocBuilder<HomeCubit,HomeState>(
       builder: (context,state) {
        if(state is PopularLoading){
-         return CircularProgressIndicator();
+         return Center(child: CircularProgressIndicator());
        }else if(state is PopularSuccess){
          return SafeArea(
            child: Padding(
@@ -53,7 +53,7 @@ class PopularBodyView extends StatelessWidget {
                      itemBuilder: (context, index) {
                        return  CustomPopularCardItem(products:state.data[index] ,);
                      },
-                     itemCount: 20,
+                     itemCount: state.data.length,
                    ),
                  ],
                ),

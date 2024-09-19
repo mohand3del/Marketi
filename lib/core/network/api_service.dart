@@ -17,6 +17,8 @@ import 'package:marketi/features/auth/otp/data/model/verify_request_body.dart';
 import 'package:marketi/features/auth/otp/data/model/verify_response_body.dart';
 import 'package:marketi/features/auth/signUp/data/model/sign_up_request_body.dart';
 import 'package:marketi/features/auth/signUp/data/model/sign_up_response.dart';
+import 'package:marketi/features/layout/home/data/model/categories_request_body.dart';
+import 'package:marketi/features/layout/home/data/model/categories_response_body.dart';
 import 'package:marketi/features/layout/home/data/model/popular_request_body.dart';
 import 'package:marketi/features/layout/home/data/model/popular_response_body.dart';
 import 'package:retrofit/retrofit.dart';
@@ -62,5 +64,9 @@ abstract class ApiService {
   @GET(ApiConstants.popular)
   Future<PopularResponseBody> popular(
       @Body() PopularRequestBody popularRequestBody,
+      );
+  @GET(ApiConstants.categories)
+  Future<CategoriesResponseBody> categories(
+      @Body() CategoriesRequestBody categoriesRequestBody,
       );
 }

@@ -1,4 +1,4 @@
-
+﻿
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -69,7 +69,7 @@ class CustomPopularCardItem extends StatelessWidget {
                           ),
                         ),
                         child: Text(
-                          '15% OFF',
+                          products.discount.toString() + '% OFF',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 12.sp,
@@ -102,7 +102,7 @@ class CustomPopularCardItem extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    '499 LE',
+                   products.price.toString() + " LE",
                     style: TextStyle(
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w500,
@@ -117,7 +117,7 @@ class CustomPopularCardItem extends StatelessWidget {
                     width: 5.w,
                     height:4.h ,),
                   Text(
-                    '4.9',
+                    '${products.rating.toString()}',
                     style: TextStyle(
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w500,
@@ -133,7 +133,7 @@ class CustomPopularCardItem extends StatelessWidget {
                 vertical: 3.h,
               ),
               child: Text(
-                'Smart Watch',
+                products.title.toString(),
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 12.sp,
