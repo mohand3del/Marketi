@@ -10,4 +10,8 @@ class HomeState<T> with _$HomeState<T> {
   const factory HomeState.categoriesLoading() = CategoriesLoading;
   const factory HomeState.categoriesSuccess(T data) = CategoriesSuccess<T>;
   const factory HomeState.categoriesError({required String error}) = CategoriesError;
+
+  const factory HomeState.brandsLoading() = BrandsLoading;
+  const factory HomeState.brandsSuccess(T data) = BrandsSuccess<T>;
+  const factory HomeState.brandsError({required String error}) = BrandsError;
 }

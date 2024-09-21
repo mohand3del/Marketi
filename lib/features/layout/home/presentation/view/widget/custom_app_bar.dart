@@ -27,7 +27,7 @@ class CustomAppBar extends StatelessWidget {
         Expanded(
           child: Text('Hi Mohand !',
             style: TextStyle(
-              fontSize: 20.sp,
+              fontSize: 20,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -40,7 +40,7 @@ class CustomAppBar extends StatelessWidget {
               radius: 5.r,
               backgroundColor: Colors.blue,
             ),
-            Icon(Icons.notifications_none_sharp,size: 32.sp,color: Colors.blue,),
+            Icon(Icons.notifications_none_sharp,size: 32,color: Colors.blue,),
           ],
         ),
       ],

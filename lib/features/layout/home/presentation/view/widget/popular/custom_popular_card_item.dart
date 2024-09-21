@@ -132,11 +132,16 @@ class CustomPopularCardItem extends StatelessWidget {
                 horizontal: 5.w,
                 vertical: 3.h,
               ),
-              child: Text(
-                products.title.toString(),
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 12.sp,
+              child: SizedBox(
+                width: 150.w,
+                child: Text(
+                  products.title.toString(),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 12.sp,
+                  ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
             ),

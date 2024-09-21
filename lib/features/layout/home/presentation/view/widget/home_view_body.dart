@@ -9,6 +9,7 @@ import 'package:marketi/features/layout/home/presentation/view/widget/popular/po
 
 
 
+import 'brand/home_brand_bloc_builder.dart';
 import 'custom_app_bar.dart';
 
 import 'custom_search.dart';
@@ -47,11 +48,12 @@ class HomeViewBody extends StatelessWidget {
               ),
             const CategoryBlocBuilder(),
 
-              Padding(
-                padding:  EdgeInsets.symmetric(vertical: 14.h),
-                child: const BuyAgain(),
-              ),
-              const CustomBrand(),
+              // Padding(
+              //   padding:  EdgeInsets.symmetric(vertical: 14.h),
+              //   child: const BuyAgain(),
+              // ),
+            ///  CustomBrand(),
+              HomeBrandBlocBuilder(),
 
             ],
           ),

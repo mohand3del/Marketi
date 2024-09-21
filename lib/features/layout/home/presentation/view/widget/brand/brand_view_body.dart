@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:marketi/features/layout/home/presentation/view/widget/brand/brand_item.dart';
 
 import '../custom_app_bar_two.dart';
+import 'brand_gride_view.dart';
 import 'custom_brand_item.dart';
 import '../popular/custom_popular_card_item.dart';
 import '../custom_search.dart';
@@ -35,20 +36,8 @@ class BrandViewBody extends StatelessWidget {
                 ),
               ),
             ),
-            GridView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 1.4.h,
-                crossAxisSpacing: 10.w,
-                mainAxisSpacing: 10.h,
-              ),
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return const CustomBrandItem();
-              },
-            ),
+            const BrandGridView(),
+
 
     ],)
       ),

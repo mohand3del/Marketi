@@ -32,53 +32,51 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await CacheHelper.cacheInit();
-   // CacheHelper.getCacheData(key: 'token');
-   // CacheHelper.getCacheData(key: 'onBoarding');
+  // CacheHelper.getCacheData(key: 'token');
+  // CacheHelper.getCacheData(key: 'onBoarding');
   //
   // String onBoarding = CacheHelper.getCacheData(key: 'onBoarding');
   //  String token = CacheHelper.getCacheData(key: 'token');
 
   // print(SharedPrefKeys.userToken);
-   //print(token);
+  //print(token);
   setupGetIt();
-
-
 
   runApp(DevicePreview(
     enabled: !kReleaseMode,
     builder: (BuildContext context) {
-     return MyApp(
+      return MyApp(
         appRouter: AppRouter(),
       );
     },
-
   ));
 }
 
 class MyApp extends StatelessWidget {
   final AppRouter appRouter;
 
-
-
-
-  MyApp({super.key, required this.appRouter,});
+  MyApp({
+    super.key,
+    required this.appRouter,
+  });
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
+      ensureScreenSize: true,
       minTextAdapt: true,
       splitScreenMode: true,
+      enableScaleText: () => true,
+      enableScaleWH: () => false,
       child: MultiBlocProvider(
         providers: [
           BlocProvider(
             create: (BuildContext context) => AuthCubit(),
           ),
           BlocProvider(
-            create: (BuildContext context) => LoginCubit(getIt(
-
-            )),
+            create: (BuildContext context) => LoginCubit(getIt()),
           ),
           BlocProvider(
             create: (BuildContext context) => SignupCubit(getIt()),
@@ -98,29 +96,31 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (BuildContext context) => NewPasswordCubit(getIt()),
           ),
-          BlocProvider(create: (BuildContext context) => GoogleCubit(getIt()),),
-          BlocProvider(create: (BuildContext context) => HomeCubit(getIt(),getIt())..getCategories()..getPopularProducts()),
-        ],
-        child: MaterialApp(
-          title: 'Marketi',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(
-                seedColor: AppColor.primaryColor,
-                //background: Color(0xffFFFFFF),
-           // brightness: Brightness.light
-            ),
-
-            useMaterial3: true,
+          BlocProvider(
+            create: (BuildContext context) => GoogleCubit(getIt()),
           ),
-
-          //home: const SplashScreen(),
-          onGenerateRoute: appRouter.generateRoute,
-          initialRoute:Routes.splash,
-          builder: DevicePreview.appBuilder,
-
-
-          //home:startWidget ,
+          BlocProvider(
+              create: (BuildContext context) =>
+                  HomeCubit(getIt(), getIt(), getIt())
+                    ..getCategories()
+                    ..getPopularProducts()
+                    ..getBrands()),
+        ],
+        child: MediaQuery(
+          data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+          child: MaterialApp(
+            title: 'Marketi',
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(
+                seedColor: AppColor.primaryColor,
+              ),
+              useMaterial3: true,
+            ),
+            onGenerateRoute: appRouter.generateRoute,
+            initialRoute: Routes.splash,
+            builder: DevicePreview.appBuilder,
+          ),
         ),
       ),
     );

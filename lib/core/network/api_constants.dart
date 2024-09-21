@@ -1,7 +1,7 @@
 
 
 class ApiConstants {
-  static const String baseUrl = 'https://marketi.up.railway.app/api/v1/';
+  static const String baseUrl = 'https://marketi-app.onrender.com/api/v1/';
     static const String login = 'auth/signIn';
     static const String signUp = 'auth/signUp';
     static const String send = 'auth/sendPassEmail';
@@ -14,6 +14,7 @@ class ApiConstants {
     static const String popular = 'home/products';
 
     static const String categories = 'home/categories';
+    static const String brands = 'home/brands';
 
 
 }

@@ -46,7 +46,7 @@ class BuildPopularItem extends StatelessWidget {
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             image: NetworkImage(
-                                product.images!.isNotEmpty ? product.images![0] : 'https://via.placeholder.com/90'),
+                                product.images?[0] ?? 'https://via.placeholder.com/90'),
                           )),
                     ),
                   ],
@@ -132,11 +132,16 @@ class BuildPopularItem extends StatelessWidget {
               padding: EdgeInsets.symmetric(
                 horizontal: 5.w,
               ),
-              child: Text(
-                product.title ?? 'No Title',
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 12.sp,
+              child: SizedBox(
+                width: 150.w,
+                child: Text(
+                  product.title ?? 'No Title',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 12.sp,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
             )

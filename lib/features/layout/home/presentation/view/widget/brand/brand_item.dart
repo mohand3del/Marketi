@@ -2,9 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:marketi/features/layout/home/data/model/brand_response_body.dart';
 
 class BrandItem extends StatelessWidget {
-  const BrandItem({super.key});
+  const BrandItem({super.key,  this.listOfBrands});
+  final ListOfBrands? listOfBrands;
 
   @override
   Widget build(BuildContext context) {
@@ -16,17 +18,17 @@ class BrandItem extends StatelessWidget {
 
             height: 96.h,
             width: 105.w,
-            // color: Colors.white,
-            child: Image.asset('assets/images/Electronics.png') ,
             decoration: BoxDecoration(
-              border: Border.all(color: const Color(0xffD9E6FF),width: 1.5),
+              //border: Border.all(color: const Color(0xffD9E6FF),width: 1.5),
               borderRadius: BorderRadius.circular(8.r),
             ),
+            // color: Colors.white,
+            child: Image.asset('assets/images/Electronics.png',fit: BoxFit.cover,) ,
 
 
           ),
         ),
-        Text('Electronics',style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.w600)),
+        Text(listOfBrands!.name,style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.w600)),
       ],
     );
   }

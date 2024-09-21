@@ -11,9 +11,9 @@ class PopularView extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       body:  BlocProvider(
-          create: (context) => HomeCubit(getIt(),getIt())..getPopularProducts(),
+          create: (context) => HomeCubit(getIt(),getIt(),getIt())..getPopularProducts(),
 
-          child: PopularBodyView()),
+          child: const PopularBodyView()),
     );
   }
 }
