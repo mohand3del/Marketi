@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marketi/features/layout/cart/presentation/view/cart_view.dart';
 import 'package:marketi/features/layout/home/presentation/view/home_view.dart';
 import 'package:marketi/features/layout/presentation/view_model/cubit/states.dart';
 
@@ -12,7 +13,7 @@ class LayoutCubit extends Cubit<LayoutStates>
 
   List<Widget>screens=[
     const HomeView(),
-    Column(),
+   const CartView(),
     Column(),
     Column(),
   ];
